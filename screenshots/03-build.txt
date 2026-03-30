@@ -1,0 +1,8 @@
+=== Carousell Marketplace CLI - Build ===
+$ ./build.sh
+
+=== Carousell Marketplace CLI - Build ===
+Using: Python 3.8.10
+Running syntax check...
+Syntax check passed.
+=== Build complete ===

@@ -1,0 +1,113 @@
+=== Carousell Marketplace CLI - Test Suite ===
+$ python3 -m unittest discover -s tests -v
+
+test_all_commands_registered (test_commands.TestCommandRegistry) ... ok
+test_dispatch (test_commands.TestCommandRegistry) ... ok
+test_unknown_command_raises (test_commands.TestCommandRegistry) ... ok
+test_success (test_commands.TestCreateListingCommand) ... ok
+test_unknown_user (test_commands.TestCreateListingCommand) ... ok
+test_not_found (test_commands.TestDeleteListingCommand) ... ok
+test_owner_mismatch (test_commands.TestDeleteListingCommand) ... ok
+test_success (test_commands.TestDeleteListingCommand) ... ok
+test_not_found (test_commands.TestGetCategoryCommand) ... ok
+test_success (test_commands.TestGetCategoryCommand) ... ok
+test_unknown_user (test_commands.TestGetCategoryCommand) ... ok
+test_not_found (test_commands.TestGetListingCommand) ... ok
+test_success (test_commands.TestGetListingCommand) ... ok
+test_unknown_user (test_commands.TestGetListingCommand) ... ok
+test_success (test_commands.TestGetTopCategoryCommand) ... ok
+test_unknown_user (test_commands.TestGetTopCategoryCommand) ... ok
+test_command_only (test_commands.TestInputParser) ... ok
+test_empty_input_raises (test_commands.TestInputParser) ... ok
+test_quoted_arguments (test_commands.TestInputParser) ... ok
+test_simple_command (test_commands.TestInputParser) ... ok
+test_duplicate (test_commands.TestRegisterCommand) ... ok
+test_success (test_commands.TestRegisterCommand) ... ok
+test_all_have_messages (test_exceptions.TestExceptionHierarchy) ... ok
+test_category_not_found_is_marketplace_error (test_exceptions.TestExceptionHierarchy) ... ok
+test_listing_not_found_is_marketplace_error (test_exceptions.TestExceptionHierarchy) ... ok
+test_listing_owner_mismatch_is_marketplace_error (test_exceptions.TestExceptionHierarchy) ... ok
+test_unknown_user_is_marketplace_error (test_exceptions.TestExceptionHierarchy) ... ok
+test_user_already_exists_is_marketplace_error (test_exceptions.TestExceptionHierarchy) ... ok
+test_case_insensitive_user_registration (test_integration.TestEdgeCases) ... ok
+test_category_becomes_empty_after_delete (test_integration.TestEdgeCases) ... ok
+test_create_listing_across_users (test_integration.TestEdgeCases) ... ok
+test_get_listing_after_delete_fails (test_integration.TestEdgeCases) ... ok
+test_listing_ids_never_reused (test_integration.TestEdgeCases)
+IDs should keep incrementing even after deletions. ... ok
+test_multiple_categories_top (test_integration.TestEdgeCases) ... ok
+test_repl_with_piped_input (test_integration.TestMainREPL)
+Simulate piping commands via STDIN through the real main(). ... ok
+test_full_spec_flow (test_integration.TestSpecExample) ... ok
+test_creation (test_models.TestListing) ... ok
+test_different_listings_not_equal (test_models.TestListing) ... ok
+test_equality (test_models.TestListing) ... ok
+test_format_category (test_models.TestListing) ... ok
+test_format_detail (test_models.TestListing) ... ok
+test_format_detail_with_spaces (test_models.TestListing) ... ok
+test_frozen_immutability (test_models.TestListing) ... ok
+test_creation (test_models.TestUser) ... ok
+test_equality (test_models.TestUser) ... ok
+test_frozen_immutability (test_models.TestUser) ... ok
+test_hash (test_models.TestUser) ... ok
+test_normalized_username (test_models.TestUser) ... ok
+test_add_and_get (test_repositories.TestInMemoryListingRepository) ... ok
+test_category_counts_empty (test_repositories.TestInMemoryListingRepository) ... ok
+test_category_counts_on_add (test_repositories.TestInMemoryListingRepository) ... ok
+test_category_counts_on_delete (test_repositories.TestInMemoryListingRepository) ... ok
+test_category_counts_returns_copy (test_repositories.TestInMemoryListingRepository) ... ok
+test_category_removed_when_count_reaches_zero (test_repositories.TestInMemoryListingRepository) ... ok
+test_delete_nonexistent_returns_none (test_repositories.TestInMemoryListingRepository) ... ok
+test_delete_returns_listing (test_repositories.TestInMemoryListingRepository) ... ok
+test_get_by_category (test_repositories.TestInMemoryListingRepository) ... ok
+test_get_by_category_empty (test_repositories.TestInMemoryListingRepository) ... ok
+test_get_nonexistent_returns_none (test_repositories.TestInMemoryListingRepository) ... ok
+test_next_id_increments (test_repositories.TestInMemoryListingRepository) ... ok
+test_next_id_starts_at_100001 (test_repositories.TestInMemoryListingRepository) ... ok
+test_add_and_get (test_repositories.TestInMemoryUserRepository) ... ok
+test_case_insensitive_lookup (test_repositories.TestInMemoryUserRepository) ... ok
+test_duplicate_exact_case_raises_error (test_repositories.TestInMemoryUserRepository) ... ok
+test_duplicate_raises_error (test_repositories.TestInMemoryUserRepository) ... ok
+test_exists (test_repositories.TestInMemoryUserRepository) ... ok
+test_get_nonexistent_returns_none (test_repositories.TestInMemoryUserRepository) ... ok
+test_multiple_users (test_repositories.TestInMemoryUserRepository) ... ok
+test_create_listing_increments_id (test_services.TestMarketplaceService) ... ok
+test_create_listing_returns_id (test_services.TestMarketplaceService) ... ok
+test_create_listing_unknown_user (test_services.TestMarketplaceService) ... ok
+test_delete_listing_already_deleted (test_services.TestMarketplaceService) ... ok
+test_delete_listing_not_found (test_services.TestMarketplaceService) ... ok
+test_delete_listing_owner_mismatch (test_services.TestMarketplaceService) ... ok
+test_delete_listing_success (test_services.TestMarketplaceService) ... ok
+test_get_category_not_found (test_services.TestMarketplaceService) ... ok
+test_get_category_sort_price_asc (test_services.TestMarketplaceService) ... ok
+test_get_category_sort_price_dsc (test_services.TestMarketplaceService) ... ok
+test_get_category_sort_time_asc (test_services.TestMarketplaceService) ... ok
+test_get_category_sort_time_dsc (test_services.TestMarketplaceService) ... ok
+test_get_category_unknown_user (test_services.TestMarketplaceService) ... ok
+test_get_listing_any_user_can_view (test_services.TestMarketplaceService) ... ok
+test_get_listing_not_found (test_services.TestMarketplaceService) ... ok
+test_get_listing_success (test_services.TestMarketplaceService) ... ok
+test_get_listing_unknown_user (test_services.TestMarketplaceService) ... ok
+test_get_top_category (test_services.TestMarketplaceService) ... ok
+test_get_top_category_after_delete (test_services.TestMarketplaceService) ... ok
+test_get_top_category_considers_all_users (test_services.TestMarketplaceService) ... ok
+test_get_top_category_empty_marketplace (test_services.TestMarketplaceService) ... ok
+test_get_top_category_unknown_user (test_services.TestMarketplaceService) ... ok
+test_register_case_insensitive_duplicate (test_services.TestMarketplaceService) ... ok
+test_register_duplicate_raises (test_services.TestMarketplaceService) ... ok
+test_register_success (test_services.TestMarketplaceService) ... ok
+test_ascending (test_sorting.TestPriceSortStrategy) ... ok
+test_descending (test_sorting.TestPriceSortStrategy) ... ok
+test_does_not_mutate_original (test_sorting.TestPriceSortStrategy) ... ok
+test_empty_list (test_sorting.TestPriceSortStrategy) ... ok
+test_single_element (test_sorting.TestPriceSortStrategy) ... ok
+test_sort_price_registered (test_sorting.TestSortStrategiesRegistry) ... ok
+test_sort_time_registered (test_sorting.TestSortStrategiesRegistry) ... ok
+test_ascending (test_sorting.TestTimeSortStrategy) ... ok
+test_descending (test_sorting.TestTimeSortStrategy) ... ok
+test_does_not_mutate_original (test_sorting.TestTimeSortStrategy) ... ok
+
+----------------------------------------------------------------------
+Ran 103 tests in 0.005s
+
+OK
